@@ -66,7 +66,11 @@ Widget reusableText(String text) {
   );
 }
 
-Widget resusableTextField(String hintText, String textType, String iconName) {
+Widget resusableTextField(
+    {required String hintText,
+    required String textType,
+    required String iconName,
+    required void Function(String value)? onChanged}) {
   return Container(
     width: 325.w,
     height: 50.h,
@@ -87,6 +91,7 @@ Widget resusableTextField(String hintText, String textType, String iconName) {
           width: 270.w,
           height: 40.h,
           child: TextField(
+            onChanged: (value) => onChanged!(value),
             keyboardType: TextInputType.multiline,
             decoration: InputDecoration(
               hintText: hintText,
