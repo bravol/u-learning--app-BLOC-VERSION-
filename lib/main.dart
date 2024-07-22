@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
           create: (context) => HomeBloc(),
         ),
         BlocProvider(
-          // lazy: false, //create as soon as possible
+          lazy: false, //create as soon as possible
           create: (context) => SigninBloc(),
         ),
       ],
