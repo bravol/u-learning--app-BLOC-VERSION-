@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:u_learning_app/pages/sign_in/bloc/signin_bloc.dart';
 import 'package:u_learning_app/pages/sign_in/bloc/signin_events.dart';
 import 'package:u_learning_app/pages/sign_in/bloc/signin_states.dart';
+import 'package:u_learning_app/pages/sign_in/signin_controller.dart';
 import 'package:u_learning_app/pages/sign_in/widgets/sign_in_widget.dart';
 
 class SignIn extends StatefulWidget {
@@ -62,8 +63,19 @@ class _SignInState extends State<SignIn> {
                               }),
                           forgotPassword(),
                           //buttons
-                          reusableButton('Sign In', 'signin'),
-                          reusableButton('Register', 'register'),
+                          reusableButton(
+                            buttonName: 'Sign In',
+                            buttonType: 'signin',
+                            onTap: () {
+                              SignInController(context: context)
+                                  .handleSignIn('email');
+                            },
+                          ),
+                          reusableButton(
+                            buttonName: 'Register',
+                            buttonType: 'register',
+                            onTap: () {},
+                          ),
                         ],
                       ),
                     )

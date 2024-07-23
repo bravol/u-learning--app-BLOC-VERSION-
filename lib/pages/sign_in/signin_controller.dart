@@ -17,9 +17,11 @@ class SignInController {
         String password = state.password;
         if (emailAddress.isEmpty) {
           //email empty
+          print('no email');
         }
         if (password.isEmpty) {
           //passowrd empty
+          print('no passowrd');
         }
         try {
           final credential = await FirebaseAuth.instance
@@ -27,16 +29,20 @@ class SignInController {
                   email: emailAddress, password: password);
           if (credential.user == null) {
             //
+            print('no user');
           }
           if (!credential.user!.emailVerified) {
             //
+            print('not verified');
           }
           var user = credential.user;
           if (user != null) {
             //got verified user from firebase
             //navigate to home
+            print('user exists, true');
           } else {
             //show error getting user from firebase
+            print('does not exist, false');
           }
         } catch (e) {}
       }

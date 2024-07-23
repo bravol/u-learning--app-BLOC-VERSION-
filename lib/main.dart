@@ -9,7 +9,7 @@ import 'package:u_learning_app/pages/sign_in/sign_in.dart';
 import 'package:u_learning_app/pages/welcome/bloc/welcome_blocs.dart';
 import 'package:u_learning_app/pages/welcome/welcome.dart';
 
-Future<void> main() async {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   runApp(const MyApp());

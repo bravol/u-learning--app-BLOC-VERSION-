@@ -147,11 +147,11 @@ Widget forgotPassword() {
 }
 
 Widget reusableButton(
-  String buttonName,
-  String buttonType,
-) {
+    {required String buttonName,
+    required String buttonType,
+    required void Function()? onTap}) {
   return GestureDetector(
-    onTap: () {},
+    onTap: onTap,
     child: Container(
       margin: EdgeInsets.only(top: buttonType == 'signin' ? 40.h : 20.h),
       width: 325.w,
