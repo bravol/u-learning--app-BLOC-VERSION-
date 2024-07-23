@@ -5,6 +5,7 @@ import 'package:u_learning_app/pages/common_widgets/common_widgets.dart';
 import 'package:u_learning_app/pages/register/bloc/register_bloc.dart';
 import 'package:u_learning_app/pages/register/bloc/register_events.dart';
 import 'package:u_learning_app/pages/register/bloc/register_states.dart';
+import 'package:u_learning_app/pages/register/register_controller.dart';
 
 class Register extends StatefulWidget {
   const Register({super.key});
@@ -83,7 +84,10 @@ class _RegisterState extends State<Register> {
                           reusableButton(
                             buttonName: ' Sign Up',
                             buttonType: 'signin',
-                            onTap: () {},
+                            onTap: () {
+                              RegisterController(context: context)
+                                  .handleEmailRegister();
+                            },
                           ),
                         ],
                       ),
