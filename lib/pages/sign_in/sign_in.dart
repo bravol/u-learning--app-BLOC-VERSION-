@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:u_learning_app/pages/common_widgets/common_widgets.dart';
 import 'package:u_learning_app/pages/sign_in/bloc/signin_bloc.dart';
 import 'package:u_learning_app/pages/sign_in/bloc/signin_events.dart';
 import 'package:u_learning_app/pages/sign_in/bloc/signin_states.dart';
 import 'package:u_learning_app/pages/sign_in/signin_controller.dart';
-import 'package:u_learning_app/pages/sign_in/widgets/sign_in_widget.dart';
 
 class SignIn extends StatefulWidget {
   const SignIn({super.key});
@@ -24,7 +24,7 @@ class _SignInState extends State<SignIn> {
           child: SafeArea(
             child: Scaffold(
               backgroundColor: Colors.white,
-              appBar: buildAppBar(),
+              appBar: buildAppBar(type: 'Sign In'),
               body: SingleChildScrollView(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -72,9 +72,11 @@ class _SignInState extends State<SignIn> {
                             },
                           ),
                           reusableButton(
-                            buttonName: 'Register',
+                            buttonName: 'Sign Up',
                             buttonType: 'register',
-                            onTap: () {},
+                            onTap: () {
+                              Navigator.pushNamed(context, '/register');
+                            },
                           ),
                         ],
                       ),

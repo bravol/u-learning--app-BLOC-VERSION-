@@ -2,18 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:u_learning_app/common/values/colors.dart';
 
-AppBar buildAppBar() {
+AppBar buildAppBar({required String type}) {
   return AppBar(
     backgroundColor: Colors.white,
     bottom: PreferredSize(
-        preferredSize: const Size.fromHeight(1.0),
-        child: Container(
-          color: AppColors.primarySecondaryBackground,
-          height: 1.0, // defining the thickness of the line
-        )),
+      preferredSize: const Size.fromHeight(1.0),
+      child: Container(
+        color: AppColors.primarySecondaryBackground,
+        height: 1.0, // defining the thickness of the line
+      ),
+    ),
     title: Center(
       child: Text(
-        'Sign In',
+        type,
         style: TextStyle(
             color: AppColors.primaryText,
             fontSize: 16.sp,

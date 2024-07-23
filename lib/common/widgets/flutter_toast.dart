@@ -6,6 +6,7 @@ toastInfo({
   required String msg,
   Color backgroundColor = Colors.black,
   Color textColor = Colors.white,
+  BuildContext? context,
 }) {
   return Fluttertoast.showToast(
     msg: msg,

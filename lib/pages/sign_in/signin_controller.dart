@@ -19,12 +19,14 @@ class SignInController {
         if (emailAddress.isEmpty) {
           //email empty
           print('fill in email');
-          toastInfo(msg: "You need to fill in your Email Address");
+
+          toastInfo(
+              msg: "You need to fill in your Email Address", context: context);
           return;
         }
         if (password.isEmpty) {
           //passowrd empty
-          toastInfo(msg: "You need to fill in your Password");
+          toastInfo(msg: "You need to fill in your Password", context: context);
           return;
         }
         try {
@@ -33,7 +35,9 @@ class SignInController {
                   email: emailAddress, password: password);
           if (credential.user == null) {
             //
-            toastInfo(msg: "You do not exist");
+            toastInfo(
+              msg: "You do not exist",
+            );
             return;
           }
           if (!credential.user!.emailVerified) {
