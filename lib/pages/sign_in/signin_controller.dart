@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:u_learning_app/common/widgets/flutter_toast.dart';
 import 'package:u_learning_app/pages/sign_in/bloc/signin_bloc.dart';
 
 class SignInController {
@@ -17,11 +18,14 @@ class SignInController {
         String password = state.password;
         if (emailAddress.isEmpty) {
           //email empty
-          print('no email');
+          print('fill in email');
+          toastInfo(msg: "You need to fill in your Email Address");
+          return;
         }
         if (password.isEmpty) {
           //passowrd empty
-          print('no passowrd');
+          toastInfo(msg: "You need to fill in your Password");
+          return;
         }
         try {
           final credential = await FirebaseAuth.instance
@@ -29,11 +33,13 @@ class SignInController {
                   email: emailAddress, password: password);
           if (credential.user == null) {
             //
-            print('no user');
+            toastInfo(msg: "You do not exist");
+            return;
           }
           if (!credential.user!.emailVerified) {
             //
-            print('not verified');
+            toastInfo(msg: "You need to verify your email Account");
+            return;
           }
           var user = credential.user;
           if (user != null) {
@@ -42,9 +48,21 @@ class SignInController {
             print('user exists, true');
           } else {
             //show error getting user from firebase
-            print('does not exist, false');
+            toastInfo(msg: "Currently you are not the user of this App");
+            return;
           }
-        } catch (e) {}
+        } on FirebaseAuthException catch (e) {
+          if (e.code == 'user_not_found') {
+            toastInfo(msg: 'No use found with this email');
+            return;
+          } else if (e.code == 'wrong_password') {
+            toastInfo(msg: 'Incorrect password');
+            return;
+          } else if (e.code == 'invalid_email') {
+            toastInfo(msg: 'Invalid email Address');
+            return;
+          }
+        }
       }
     } catch (e) {}
   }

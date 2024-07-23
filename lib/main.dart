@@ -2,11 +2,9 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:u_learning_app/pages/home/bloc/home_bloc.dart';
+import 'package:u_learning_app/pages/bloc_providers.dart';
 import 'package:u_learning_app/pages/home/home.dart';
-import 'package:u_learning_app/pages/sign_in/bloc/signin_bloc.dart';
 import 'package:u_learning_app/pages/sign_in/sign_in.dart';
-import 'package:u_learning_app/pages/welcome/bloc/welcome_blocs.dart';
 import 'package:u_learning_app/pages/welcome/welcome.dart';
 
 void main() async {
@@ -21,19 +19,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      providers: [
-        BlocProvider(
-          create: (context) => WelcomeBloc(),
-        ),
-        BlocProvider(
-          // lazy: false, //create as soon as possible
-          create: (context) => HomeBloc(),
-        ),
-        BlocProvider(
-          lazy: false, //create as soon as possible
-          create: (context) => SigninBloc(),
-        ),
-      ],
+      providers: AppBlocProvider.allBlocProviders,
       child: ScreenUtilInit(
         builder: (context, child) => MaterialApp(
           debugShowCheckedModeBanner: false,
