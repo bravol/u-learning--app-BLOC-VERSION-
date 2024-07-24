@@ -23,22 +23,97 @@ class _HomeState extends State<Home> {
         builder: (context, state) {
           return Container(
             margin: EdgeInsets.symmetric(vertical: 0, horizontal: 15.w),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                homePageText(
-                  'Hello',
-                  color: AppColors.primaryThirdElementText,
+            child: CustomScrollView(
+              //slivers are great in smooth scrolling
+              slivers: [
+                SliverToBoxAdapter(
+                  child: homePageText(
+                    'Hello',
+                    color: AppColors.primaryThirdElementText,
+                  ),
                 ),
-                homePageText('Lumala Brian', top: 5),
-                SizedBox(height: 20.h),
+                SliverToBoxAdapter(
+                  child: homePageText('Lumala Brian', top: 5),
+                ),
+                SliverPadding(padding: EdgeInsets.only(top: 20.h)),
+
                 // serach bar
-                searchView(),
+                SliverToBoxAdapter(
+                  child: searchView(),
+                ),
 
                 //slider view
-                slidersView(context, state),
+                SliverToBoxAdapter(child: slidersView(context, state)),
                 //menue View
-                menuView(),
+                SliverToBoxAdapter(child: menuView()),
+
+                SliverPadding(
+                  padding: EdgeInsets.symmetric(
+                    vertical: 18.h,
+                    horizontal: 0.w,
+                  ),
+                  sliver: SliverGrid(
+                    delegate: SliverChildBuilderDelegate(childCount: 4,
+                        (BuildContext context, int index) {
+                      return GestureDetector(
+                        onTap: () {},
+                        child: Container(
+                          decoration: BoxDecoration(
+                            image: const DecorationImage(
+                                image: AssetImage('assets/icons/Image(2).png'),
+                                fit: BoxFit.fill),
+                            borderRadius: BorderRadius.circular(15.w),
+                          ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Container(
+                                margin: EdgeInsets.only(left: 10.w),
+                                child: Text(
+                                  'Best Course for IT and Enginnering',
+                                  maxLines: 1,
+                                  overflow: TextOverflow.clip,
+                                  textAlign: TextAlign.left,
+                                  softWrap: false,
+                                  style: TextStyle(
+                                    color: AppColors.primaryElementText,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 11.sp,
+                                  ),
+                                ),
+                              ),
+                              SizedBox(height: 5.h),
+                              Container(
+                                margin:
+                                    EdgeInsets.only(left: 10.w, bottom: 5.h),
+                                child: Text(
+                                  'Flutter Best Course',
+                                  maxLines: 1,
+                                  overflow: TextOverflow.clip,
+                                  textAlign: TextAlign.left,
+                                  softWrap: false,
+                                  style: TextStyle(
+                                    color: AppColors.primaryForthElementText,
+                                    fontWeight: FontWeight.normal,
+                                    fontSize: 8.sp,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      );
+                    }),
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      mainAxisSpacing: 15,
+                      crossAxisSpacing: 15,
+                      childAspectRatio: 1.6,
+                    ),
+                  ),
+                ),
               ],
             ),
           );
