@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:u_learning_app/common/values/colors.dart';
 import 'package:u_learning_app/pages/home/home.dart';
+import 'package:u_learning_app/pages/profile/profile.dart';
 
 Widget buildPage(int index) {
   List<Widget> _widgets = [
@@ -17,9 +18,7 @@ Widget buildPage(int index) {
     const Center(
       child: Text("Chat"),
     ),
-    const Center(
-      child: Text("Profile"),
-    ),
+    const Profile(),
   ];
   return _widgets[index];
 }
