@@ -1,6 +1,9 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:u_learning_app/common/routes/routes.dart';
 import 'package:u_learning_app/common/widgets/flutter_toast.dart';
 import 'package:u_learning_app/pages/sign_in/bloc/signin_bloc.dart';
 
@@ -48,8 +51,9 @@ class SignInController {
           var user = credential.user;
           if (user != null) {
             //got verified user from firebase
+            Navigator.of(context).pushNamedAndRemoveUntil(
+                AppRoutes.APPLICATION, (route) => false);
             //navigate to home
-            print('user exists, true');
           } else {
             //show error getting user from firebase
             toastInfo(msg: "Currently you are not the user of this App");
