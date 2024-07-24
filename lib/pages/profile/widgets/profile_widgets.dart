@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:u_learning_app/common/routes/routes.dart';
 import 'package:u_learning_app/common/values/colors.dart';
 
 AppBar buildAppBar() {
@@ -56,15 +57,17 @@ Widget profileIconAndEditButton() {
 Map<String, String> imagesInfo = {
   'Settings': 'settings.png',
   'Payment details': 'credit-card.png',
-  'Love': 'award.png',
+  'Achievements': 'award.png',
+  'Love': 'heart(1).png',
+  'Learning Reminders': 'cube.png',
 };
 
 //setting sections buttons
-Widget buildListView() {
+Widget buildListView(BuildContext context) {
   return Column(
     children: imagesInfo.entries.map((entry) {
       return GestureDetector(
-        onTap: () {},
+        onTap: () => Navigator.of(context).pushNamed(AppRoutes.SETTINGS),
         child: Container(
           margin: EdgeInsets.only(bottom: 15.h),
           child: Row(

@@ -12,4 +12,5 @@ class AppRoutes {
   static const REGISTER = '/register';
   //forgot password page
   static const FORGOT_PASSWORD = '/forgot-password';
+  static const SETTINGS = '/settings';
 }
