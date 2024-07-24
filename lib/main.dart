@@ -18,6 +18,8 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [...AppPages.allProviders(context)],
       child: ScreenUtilInit(
+        //making it responsive on different devices
+        designSize: const Size(375, 812),
         builder: (context, child) => MaterialApp(
           debugShowCheckedModeBanner: false,
           theme: ThemeData(

@@ -34,7 +34,7 @@ class _RegisterState extends State<Register> {
                         child: reusableText(
                             'Enter your Details below and free sign up')),
                     Container(
-                      margin: EdgeInsets.only(top: 36.h),
+                      margin: EdgeInsets.only(top: 60.h),
                       padding: EdgeInsets.only(left: 25.w, right: 25.w),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -80,7 +80,7 @@ class _RegisterState extends State<Register> {
                                     .add(ConfirmPasswordEvent(value));
                               }),
                           reusableText(
-                              'By Creating an account, you have to agree with our terms and conditons'),
+                              'By Creating an account, you have to agree with our terms & conditons'),
                           reusableButton(
                             buttonName: ' Sign Up',
                             buttonType: 'signin',

@@ -26,6 +26,12 @@ class _HomeState extends State<Home> {
               color: AppColors.primaryThirdElementText,
             ),
             homePageText('Lumala Brian', top: 5),
+            SizedBox(height: 20.h),
+            // serach bar
+            searchView(),
+
+            //slider view
+            slidersView()
           ],
         ),
       ),
