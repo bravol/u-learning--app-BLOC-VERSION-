@@ -4,7 +4,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:u_learning_app/common/routes/routes.dart';
+import 'package:u_learning_app/common/values/constant.dart';
 import 'package:u_learning_app/common/widgets/flutter_toast.dart';
+import 'package:u_learning_app/global.dart';
 import 'package:u_learning_app/pages/sign_in/bloc/signin_bloc.dart';
 
 class SignInController {
@@ -50,6 +52,9 @@ class SignInController {
           }
           var user = credential.user;
           if (user != null) {
+            //to remember a user if he has already lodded in or not
+            Global.storageService
+                .setString(AppConstants.STORAGE_USER_TOKEN_KEY, '12345678');
             //got verified user from firebase
             Navigator.of(context).pushNamedAndRemoveUntil(
                 AppRoutes.APPLICATION, (route) => false);

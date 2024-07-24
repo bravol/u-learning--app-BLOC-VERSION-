@@ -1,14 +1,15 @@
+// ignore_for_file: no_leading_underscores_for_local_identifiers
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:u_learning_app/common/values/colors.dart';
+import 'package:u_learning_app/pages/home/home.dart';
 
 Widget buildPage(int index) {
   List<Widget> _widgets = [
+    const Home(),
     const Center(
-      child: Text("Home"),
-    ),
-    const Center(
-      child: const Text("Search"),
+      child: Text("Search"),
     ),
     const Center(
       child: Text("Course"),
