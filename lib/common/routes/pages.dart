@@ -6,6 +6,8 @@ import 'package:u_learning_app/common/routes/names.dart';
 import 'package:u_learning_app/global.dart';
 import 'package:u_learning_app/pages/application/application.dart';
 import 'package:u_learning_app/pages/application/bloc/app_bloc.dart';
+import 'package:u_learning_app/pages/home/bloc/home_bloc.dart';
+import 'package:u_learning_app/pages/home/home.dart';
 import 'package:u_learning_app/pages/register/bloc/register_bloc.dart';
 import 'package:u_learning_app/pages/register/register.dart';
 import 'package:u_learning_app/pages/sign_in/bloc/signin_bloc.dart';
@@ -46,6 +48,11 @@ class AppPages {
         route: AppRoutes.APPLICATION,
         page: const Application(),
         bloc: BlocProvider(create: (_) => AppBloc()),
+      ),
+      PageEntity(
+        route: AppRoutes.HOME,
+        page: const Home(),
+        bloc: BlocProvider(create: (_) => HomeBloc()),
       ),
     ];
   }

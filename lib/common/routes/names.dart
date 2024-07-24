@@ -5,6 +5,7 @@ class AppRoutes {
   static const INITIAL = '/';
   //application page
   static const APPLICATION = '/application';
+  static const HOME = '/home';
   //sign in page
   static const SIGN_IN = '/sign-in';
   //register page

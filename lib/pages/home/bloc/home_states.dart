@@ -1,4 +1,8 @@
 class HomeState {
-  int page2;
-  HomeState({this.page2 = 0});
+  final int index;
+  const HomeState({this.index = 0});
+
+  HomeState copyWith({int? index}) {
+    return HomeState(index: index ?? this.index);
+  }
 }
