@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
               backgroundColor: Colors.white,
             ),
           ),
-          initialRoute: '/',
+          initialRoute: AppRoutes.INITIAL,
           onGenerateRoute: AppPages.generateRouteSettings,
         ),
       ),
